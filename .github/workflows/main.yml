@@ -1,0 +1,29 @@
+name: CI
+
+on:
+  push:
+    branches:
+    - master
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@master
+    - uses: jakejarvis/s3-sync-action@master
+      with:
+        args: --acl public-read --follow-symlinks --delete
+      env:
+        AWS_S3_BUCKET: 'kucera.tech'
+        AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
+        AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+        AWS_REGION: 'eu-central-1'
+# Invalidate Cloudfront files
+    - name: invalidate
+      uses: chetan/invalidate-cloudfront-action@master
+      env:
+        DISTRIBUTION: ${{ secrets.CLOUDFRONT_DISTRIBUTION }}
+        PATHS: '/index.html /files/* /images/petr.jpeg'
+        AWS_REGION: 'eu-central-1'
+        AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
+        AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
