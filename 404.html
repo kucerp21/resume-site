@@ -1,16 +1,38 @@
 <!doctype html>
-<html lang="en">
+<html lang="en" class="scroll-smooth">
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>404 — Page Not Found</title>
+  <title>404 — Page Not Found · Petr Kučera</title>
   <meta name="robots" content="noindex, follow" />
   <link rel="icon" href="favicon.ico" />
-  <style>body{font-family:sans-serif;text-align:center;padding:4em;}h1{font-size:3em;}p{color:#666;}</style>
+  <link href="output.css" rel="stylesheet" />
 </head>
-<body>
-  <h1>404</h1>
-  <p>Sorry, the page you are looking for does not exist.</p>
-  <a href="/">Back to homepage</a>
+<body class="bg-zinc-50 text-zinc-900 antialiased dark:bg-zinc-950 dark:text-zinc-100 min-h-screen flex flex-col">
+
+  <header class="border-b border-zinc-200/60 dark:border-zinc-800">
+    <div class="max-w-5xl mx-auto px-4 py-3">
+      <a href="/" class="font-semibold tracking-tight text-lg focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-indigo-600 rounded">Petr Kučera</a>
+    </div>
+  </header>
+
+  <main class="flex-1 flex items-center justify-center px-4">
+    <div class="text-center">
+      <p class="text-xs font-semibold tracking-widest uppercase text-indigo-600 mb-4">404</p>
+      <h1 class="text-4xl md:text-5xl font-bold tracking-tight">Page not found</h1>
+      <p class="mt-4 text-zinc-600 dark:text-zinc-400 max-w-sm mx-auto">Sorry, the page you're looking for doesn't exist or has been moved.</p>
+      <div class="mt-8">
+        <a href="/" class="inline-flex items-center gap-2 px-5 py-2.5 rounded-lg bg-indigo-600 text-white text-sm font-medium hover:bg-indigo-700 transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-indigo-600 focus-visible:ring-offset-2">
+          <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4 shrink-0" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path fill-rule="evenodd" d="M9.707 14.707a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414l4-4a1 1 0 011.414 1.414L7.414 9H15a1 1 0 110 2H7.414l2.293 2.293a1 1 0 010 1.414z" clip-rule="evenodd" /></svg>
+          Back to homepage
+        </a>
+      </div>
+    </div>
+  </main>
+
+  <footer class="border-t border-zinc-200 dark:border-zinc-800 py-6 text-center text-xs text-zinc-500">
+    © 2026 Petr Kučera
+  </footer>
+
 </body>
 </html>
